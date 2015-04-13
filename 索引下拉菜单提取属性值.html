@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<style type="text/css">
+	*{margin:0;padding:0;}
+	li{list-style:none;}
+	#d1{width:200px;border:1px solid red;margin:50px auto;}
+	#d1 p{height:30px;width:100%;background:red;color:yellow;line-height:30px;text-indent:20px;border-bottom:1px solid blue;}
+	#d1 ul li a{display:block;width:100%;height:25px;line-height:25px;text-align:center;border-bottom:1px solid orange;color:green;}
+	#d1 ul li a:hover{background:yellow;color:red;}
+	#d1 ul{display:none;}
+</style>
+<script type="text/javascript">
+	window.onload=function(){
+		//获取元素的CSS属性
+		function ha(obj,cs){
+			if(obj.currentStyle){
+				return obj.currentStyle[cs]; 
+			}else{
+				return getComputedStyle(obj)[cs];
+			}
+		}
+		var oDiv=document.getElementById('d1');
+		var oP = oDiv.getElementsByTagName('p');
+		var aUls = document.getElementsByTagName('ul');
+		for(var i=0;i<oP.length;i++){
+		oP[i].n=i;
+			oP[i].onclick=function(){
+				//var p = this.parentNode  //通过子元素找到父元素
+				//var oUl=p.getElementsByTagName('ul')[0];
+				var re = ha(aUls[this.n],'display');
+				for(var j=0;j<oP.length;j++){
+				
+					aUls[j].style.display='none';
+				}
+				if(re=='none'){
+					aUls[this.n].style.display='block';
+				}
+			}
+		}
+	}
+</script>
+<body>
+<div id="d1">
+	<div>
+		<p>哈哈哈</p>
+		<ul>
+			<li><a href="#">哈哈哈</a></li>
+			<li><a href="#">哈哈哈</a></li>
+			<li><a href="#">哈哈哈</a></li>
+			<li><a href="#">哈哈哈</a></li>
+		</ul>
+	</div>
+	<div>
+		<p>呵呵呵</p>
+		<ul>
+			<li><a href="#">呵呵呵</a></li>
+			<li><a href="#">呵呵呵</a></li>
+			<li><a href="#">呵呵呵</a></li>
+			<li><a href="#">呵呵呵</a></li>
+		</ul>
+	</div>
+	<div>
+		<p>嘿嘿嘿</p>
+		<ul>
+			<li><a href="#">嘿嘿嘿</a></li>
+			<li><a href="#">嘿嘿嘿</a></li>
+			<li><a href="#">嘿嘿嘿</a></li>
+			<li><a href="#">嘿嘿嘿</a></li>
+		</ul>
+	</div>
+	<div>
+		<p>嘻嘻嘻</p>
+		<ul>
+			<li><a href="#">嘻嘻嘻</a></li>
+			<li><a href="#">嘻嘻嘻</a></li>
+			<li><a href="#">嘻嘻嘻</a></li>
+			<li><a href="#">嘻嘻嘻</a></li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>
